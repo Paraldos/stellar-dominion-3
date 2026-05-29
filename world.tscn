@@ -1,0 +1,25 @@
+[gd_scene format=4 uid="uid://ba26ia6ilvb3s"]
+
+[ext_resource type="Texture2D" uid="uid://bsge8bid7r7sh" path="res://assets/img/hex.png" id="1_f3sb7"]
+[ext_resource type="Script" uid="uid://d28u2ybol0qov" path="res://world.gd" id="1_fj7yv"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fj7yv"]
+texture = ExtResource("1_f3sb7")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_tlwt5"]
+tile_shape = 3
+tile_size = Vector2i(31, 32)
+sources/0 = SubResource("TileSetAtlasSource_fj7yv")
+
+[node name="World" type="Node2D" unique_id=34023231]
+script = ExtResource("1_fj7yv")
+
+[node name="TileMap" type="TileMapLayer" parent="." unique_id=1329786184]
+position = Vector2(-15, -16)
+tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAD//wEAAAAAAAAAAAD//wAAAAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAAAAAEAAAAAAAAAAAABAAAAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_tlwt5")
+metadata/_edit_lock_ = true
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=279531473]

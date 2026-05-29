@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://wochdo37jubj"]
+
+[ext_resource type="Script" uid="uid://cupbt46kf861l" path="res://singeltons/game_data.gd" id="1_brflg"]
+
+[node name="GameData" type="Node" unique_id=67136014]
+script = ExtResource("1_brflg")
