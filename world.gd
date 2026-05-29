@@ -1,30 +1,23 @@
 extends Node2D
 
 @onready var tile_map: TileMapLayer = $TileMap
+@onready var stars: Node2D = %Stars
+const STAR_BP = preload("uid://dm1w6420xd6lo")
 const HEX_ID := 0
 const HEX_ATLAS_COORDS := Vector2i(0, 0)
 
 func _ready() -> void:
-	draw_hex_circle(GameData.map_size)
+	GameData.new_game()
+	draw_hexes()
 
-func draw_hex_circle(size: int) -> void:
+func draw_hexes() -> void:
 	tile_map.clear()
-
-	var center := Vector2i(0, 0)
-	var current_ring := [Vector2i(0, 0)]
-	var used_cells := {center: true}
-
-	tile_map.set_cell(center, HEX_ID, HEX_ATLAS_COORDS)
-
-	for distance in range(size - 1):
-		var next_ring := []
-
-		for cell in current_ring:
-			for neighbour in tile_map.get_surrounding_cells(cell):
-				if used_cells.has(neighbour): continue
-				used_cells[neighbour] = true
-				tile_map.set_cell(neighbour, HEX_ID, HEX_ATLAS_COORDS)
-				next_ring.append(neighbour)
-
-
-		current_ring = next_ring
+	for hex in GameData.hexes:
+		tile_map.set_cell(hex, HEX_ID, HEX_ATLAS_COORDS)
+	for key in GameData.stars:
+		var star = GameData.stars[key]
+		var new_star = STAR_BP.instantiate()
+		print(star.hex)
+		new_star.global_position = tile_map.map_to_local(star.hex)
+		new_star.global_position += Vector2(-15,-16) + star.offset
+		stars.add_child(new_star)

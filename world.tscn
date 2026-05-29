@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://ba26ia6ilvb3s"]
+[gd_scene format=3 uid="uid://ba26ia6ilvb3s"]
 
 [ext_resource type="Texture2D" uid="uid://bsge8bid7r7sh" path="res://assets/img/hex.png" id="1_f3sb7"]
 [ext_resource type="Script" uid="uid://d28u2ybol0qov" path="res://world.gd" id="1_fj7yv"]
@@ -16,10 +16,26 @@ sources/0 = SubResource("TileSetAtlasSource_fj7yv")
 [node name="World" type="Node2D" unique_id=34023231]
 script = ExtResource("1_fj7yv")
 
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=82703264]
+layer = -99999
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=398221596]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.03529412, 0.039215688, 0.078431375, 1)
+
 [node name="TileMap" type="TileMapLayer" parent="." unique_id=1329786184]
 position = Vector2(-15, -16)
-tile_map_data = PackedByteArray("AAAAAAAAAAAAAAAAAAD//wEAAAAAAAAAAAD//wAAAAAAAAAAAAD/////AAAAAAAAAAAAAP//AAAAAAAAAAAAAAEAAAAAAAAAAAABAAAAAAAAAAAAAAA=")
+tile_map_data = PackedByteArray(0, 0, 1, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0)
 tile_set = SubResource("TileSet_tlwt5")
 metadata/_edit_lock_ = true
+
+[node name="Stars" type="Node2D" parent="." unique_id=136656778]
+unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=279531473]
